@@ -18,6 +18,18 @@
     <color name="pink">#F704E1</color>
     <color name="red">#ff0000</color>
     <color name="text_normal">#919191</color>
+    <color name="lightblue">#ADD8E6</color>
+    <color name="seafoamgreen">#9FE2BF</color>
+    <color name="charcoal">#36454F</color>
+    <color name="licorice">#1B1212</color>
+    <color name="icterine">#FCF55F</color>
+    <color name="pink2">#FFC0CB</color>
+    <color name="pastelred">#FAA0A0</color>
+    <color name="periwinkle">#CCCCFF</color>
+    <color name="pastelyellow">#FFFAA0</color>
+    <color name="coral">#FF6F61</color>
+    <color name="lightgrey">#F0F0F0</color>
+    <color name="darkgrey">#333333</color>
 
 
     <color name="colorPrimary">#0040FF</color>

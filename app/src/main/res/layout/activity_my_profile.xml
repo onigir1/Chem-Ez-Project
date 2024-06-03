@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_background2"
+    android:background="@color/seafoamgreen"
     android:theme="@style/LoginTheme"
     tools:context=".MyProfileActivity">
 
@@ -12,11 +12,12 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/skyblue"
+        android:background="@color/pink2"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:titleTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
 
         />
 
@@ -24,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ll1"
-        android:background="@color/skyblue"
+        android:background="@color/pink2"
         android:gravity="center"
         android:orientation="vertical"
         android:paddingTop="32dp"

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/pink2"
     android:theme="@style/LoginTheme"
     tools:context=".LoginActivity">
 
@@ -11,7 +12,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/skyblue"
+        android:background="@color/seafoamgreen"
         android:gravity="center"
         android:orientation="vertical"
 
@@ -21,21 +22,21 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:src="@drawable/app_logo"
+            android:layout_width="390dp"
+            android:layout_height="190dp"
+            android:src="@drawable/app_logo3"
 
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="-22dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/timezone"
             android:text="@string/app_name"
-            android:textColor="@color/white"
-            android:fontFamily="@font/madimioneregular"
+            android:textColor="@color/charcoal"
             android:textSize="32sp"
-            android:textStyle="bold"
 
             />
 
@@ -47,7 +48,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="32dp"
         android:backgroundTint="@color/colorPrimaryDark"
         android:drawableLeft="@drawable/ic_account"
@@ -114,7 +115,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="10dp"
         android:text="Don't have an account ? "
         android:textColor="@color/black"
         android:textSize="18sp"
@@ -127,7 +128,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="10dp"
         android:text="SIGN UP"
         android:textColor="@color/purplishblue"
         android:textSize="18sp"
@@ -141,12 +142,11 @@
         android:layout_height="45dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginBottom="110dp"
+        android:layout_marginBottom="80dp"
         android:background="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        >
+        app:layout_constraintRight_toRightOf="parent">
 
         <ImageView
             android:id="@+id/g_img"
@@ -158,13 +158,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
             android:layout_centerVertical="true"
+            android:layout_marginStart="0dp"
             android:layout_toEndOf="@+id/g_img"
             android:text="Sign In with Google"
             android:textColor="@color/white"
-            android:textSize="18sp"
-            />
+            android:textSize="18sp" />
 
 
     </RelativeLayout>

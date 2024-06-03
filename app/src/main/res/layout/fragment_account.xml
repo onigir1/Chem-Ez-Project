@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AccountFragment"
-    android:background="@color/main_background2"
+    android:background="@color/pink2"
 
     >
 
@@ -14,7 +14,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/ll1"
-        android:background="@color/skyblue"
+        android:background="@color/seafoamgreen"
         android:gravity="center"
         android:orientation="vertical"
         android:paddingTop="32dp"
@@ -227,7 +227,7 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/award"
+                    android:src="@drawable/award2"
                     />
 
                 <TextView

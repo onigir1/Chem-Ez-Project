@@ -13,9 +13,10 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
+            app:titleTextColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/skyblue"
+            android:background="@color/pink2"
             app:popupTheme="@style/Theme.ChemEzProject1.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
