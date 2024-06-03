@@ -27,6 +27,7 @@ public class AnswersAdapter extends RecyclerView.Adapter<AnswersAdapter.ViewHold
     public AnswersAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.answer_item_layout,parent,false);
         return new AnswersAdapter.ViewHolder(view);
+        //yooooo
     }
 
     @Override
