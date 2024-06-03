@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "596833349514",
+    "project_id": "chemez2",
+    "storage_bucket": "chemez2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:596833349514:android:e9645f850396cea8516273",
+        "android_client_info": {
+          "package_name": "com.example.chemezproject1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "596833349514-6nl5uek5rl8bm6ifsg9oi06o7cfc0i68.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrL5yywT156v6rk5K-KifR6W03V7GNWBs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "596833349514-6nl5uek5rl8bm6ifsg9oi06o7cfc0i68.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
