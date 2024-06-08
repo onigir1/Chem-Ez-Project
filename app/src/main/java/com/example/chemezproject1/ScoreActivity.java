@@ -13,7 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.color.utilities.Score;
 import com.google.protobuf.StringValue;
 
@@ -30,6 +30,7 @@ public class ScoreActivity extends AppCompatActivity {
     private Dialog progressDialog;
     private TextView dialogText;
     private int finalScore;
+    private BottomNavigationView bottomNavigationView;
 
 
     @Override
@@ -70,6 +71,12 @@ public class ScoreActivity extends AppCompatActivity {
             }
         });
 
+        leaderb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //bottomNavigationView.setSelectedItemId(R.id.navigation_leaderboard);
+            }
+        });
 
         reAttemptB.setOnClickListener(new View.OnClickListener() {
             @Override

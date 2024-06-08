@@ -57,14 +57,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 setFragement(new CategoryFragment());
                 return true;
             }
-
+            else if (itemId == R.id.navigation_material)
+            {
+                //bottomNavigationView.setSelectedItemId(R.id.navigation_material);
+                setFragement(new MaterialFragment());
+                return true;
+            }
             else if (itemId == R.id.navigation_leaderboard)
             {
                 //bottomNavigationView.setSelectedItemId(R.id.navigation_leaderboard);
                 setFragement(new LeaderboardFragment());
                 return true;
             }
-
             else if (itemId == R.id.navigation_account)
             {
                 //bottomNavigationView.setSelectedItemId(R.id.navigation_account);
@@ -131,7 +135,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_home) {
             setFragement(new CategoryFragment());
         }
-
+        else if (id == R.id.nav_material) {
+            setFragement(new MaterialFragment());
+        }
         else if (id == R.id.nav_account) {
             setFragement(new AccountFragment());
         }

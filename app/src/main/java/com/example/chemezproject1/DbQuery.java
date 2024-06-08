@@ -51,7 +51,6 @@ public class DbQuery {
     static int tmp;
 
 
-
     public static void createUserData(String email, String name, final MyCompleteListener completeListener)
     {
         // Create a new user with a first and last name
@@ -606,4 +605,5 @@ public class DbQuery {
             }
         });
     }
+
 }

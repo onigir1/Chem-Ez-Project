@@ -8,6 +8,11 @@
         android:title="Home"/>
 
     <item
+        android:id="@+id/navigation_material"
+        android:icon="@drawable/ic_book"
+        android:title="Materials"/>
+
+    <item
         android:id="@+id/navigation_leaderboard"
         android:icon="@drawable/ic_leaderboard"
         android:title="Leaderboard"/>
