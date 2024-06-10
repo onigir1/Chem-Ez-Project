@@ -11,6 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import com.github.barteksc.pdfviewer.PDFView;
+
+
+
 
 public class MaterialFragment extends Fragment {
 
@@ -47,36 +51,41 @@ public class MaterialFragment extends Fragment {
     }
 
     private void initViews(View view) {
-        // Find TextViews by their IDs
-        material1B = view.findViewById(R.id.material1B);
-        material2B = view.findViewById(R.id.material2B);
-        material3B = view.findViewById(R.id.material3B);
+        // Find PDFViews by their IDs
+        PDFView material1B = view.findViewById(R.id.material1B);
+        PDFView material2B = view.findViewById(R.id.material2B);
+        PDFView material3B = view.findViewById(R.id.material3B);
 
-        // Set click listeners for each TextView
+        // Set click listeners for each PDFView
         material1B.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle click for material1B
-                // Example: navigate to another fragment, perform an action, etc.
+                openPdf("pdftest1.pdf");
             }
         });
 
         material2B.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle click for material2B
-                // Example: navigate to another fragment, perform an action, etc.
+                openPdf("pdftest2.pdf");
             }
         });
 
         material3B.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle click for material3B
-                // Example: navigate to another fragment, perform an action, etc.
+                openPdf("pdftest3.pdf");
             }
         });
     }
 
 
+    private void openPdf(String pdfFileName) {
+        // Create a new fragment to display the PDF
+        PdfFragment pdfFragment = PdfFragment.newInstance(pdfFileName);
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.main_frame, pdfFragment)
+                .addToBackStack(null)
+                .commit();
+    }
 }

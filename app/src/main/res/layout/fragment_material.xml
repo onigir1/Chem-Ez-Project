@@ -32,9 +32,10 @@
                 android:translationZ="3dp"
                 app:cardCornerRadius="8dp">
 
-                <LinearLayout
+                <com.github.barteksc.pdfviewer.PDFView
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
+                    android:id="@+id/material1B"
                     android:orientation="vertical"
                     android:gravity="center"
                     android:background="@color/white">
@@ -42,14 +43,13 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/material1B"
                         android:text="CARBON COMPOUNDS"
                         android:textStyle="bold"
                         android:textSize="20sp"
                         android:textColor="@color/black"
                         android:textAlignment="center"/>
 
-                </LinearLayout>
+                </com.github.barteksc.pdfviewer.PDFView>
 
             </androidx.cardview.widget.CardView>
 
@@ -69,9 +69,10 @@
                 android:translationZ="3dp"
                 app:cardCornerRadius="8dp">
 
-                <LinearLayout
+                <com.github.barteksc.pdfviewer.PDFView
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
+                    android:id="@+id/material2B"
                     android:orientation="vertical"
                     android:gravity="center"
                     android:background="@color/white">
@@ -79,14 +80,13 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/material2B"
                         android:text="CHEMICAL PROPERTIES"
                         android:textStyle="bold"
                         android:textSize="20sp"
                         android:textColor="@color/black"
                         android:textAlignment="center"/>
 
-                </LinearLayout>
+                </com.github.barteksc.pdfviewer.PDFView>
 
             </androidx.cardview.widget.CardView>
 
@@ -106,9 +106,10 @@
                 android:translationZ="3dp"
                 app:cardCornerRadius="8dp">
 
-                <LinearLayout
+                <com.github.barteksc.pdfviewer.PDFView
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
+                    android:id="@+id/material3B"
                     android:orientation="vertical"
                     android:gravity="center"
                     android:background="@color/white">
@@ -116,14 +117,13 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/material3B"
                         android:text="HOMOLOGOUS SERIES"
                         android:textStyle="bold"
                         android:textSize="20sp"
                         android:textColor="@color/black"
                         android:textAlignment="center"/>
 
-                </LinearLayout>
+                </com.github.barteksc.pdfviewer.PDFView>
 
             </androidx.cardview.widget.CardView>
 
