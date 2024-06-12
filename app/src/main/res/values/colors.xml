@@ -30,6 +30,23 @@
     <color name="coral">#FF6F61</color>
     <color name="lightgrey">#F0F0F0</color>
     <color name="darkgrey">#333333</color>
+    <color name="screamingreen">#76ff7a</color>
+    <color name="mintgreen1">#98ff98</color>
+    <color name="pink3">#FFE6EE</color>
+    <color name="mintgreen2">#DDF2D1</color>
+    <color name="mintgreen3">#ECFADC</color>
+    <color name="nude">#FCF6E1</color>
+    <color name="purple4">#F5E1FD</color>
+    <color name="grey2">#F5F5F5</color>
+    <color name="blue1">#E8F0FE</color>
+    <color name="lightblue2">#E0F7FA</color>
+    <color name="paleyellow">#FFF9C4</color>
+    <color name="softpink">#F8BBD0</color>
+    <color name="lightlavender">#E1BEE7</color>
+    <color name="mintgreen4">#C8E6C9</color>
+
+
+
 
 
     <color name="colorPrimary">#0040FF</color>

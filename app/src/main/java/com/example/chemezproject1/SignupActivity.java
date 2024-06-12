@@ -126,7 +126,7 @@ public class SignupActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
 
-                            Toast.makeText(SignupActivity.this, "Sign Up Successful ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignupActivity.this, "Welcome aboard! Your account has been created. ", Toast.LENGTH_SHORT).show();
 
                             DbQuery.createUserData(emailStr, nameStr, new  MyCompleteListener(){
 

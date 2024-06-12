@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextView forgotPassB, signupB;
     private Dialog progressDialog;
     private TextView dialogText;
-    private RelativeLayout gSignB;
+    private ImageView gSignB; // Change type to ImageView
     private GoogleSignInClient mGoogleSignInClient;
     private int RC_SIGN_IN = 104;
 
@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
         loginB = findViewById(R.id.loginB);
         forgotPassB = findViewById(R.id.forgot_pass);
         signupB = findViewById(R.id.signupB);
-        gSignB = findViewById(R.id.g_signB);
+        gSignB = findViewById(R.id.g_signB); // Correctly initialize ImageView
 
         progressDialog = new Dialog(LoginActivity.this);
         progressDialog.setContentView(R.layout.dialog_layout);
@@ -119,7 +119,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressDialog.dismiss();
                         if (task.isSuccessful()) {
-                            Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Welcome back! You're logged in.", Toast.LENGTH_SHORT).show();
                             loadUserDataAndNavigate();
                         } else {
                             Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
