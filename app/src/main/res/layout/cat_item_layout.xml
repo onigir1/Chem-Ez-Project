@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="?android:attr/selectableItemBackground"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    
-    
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground">
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,42 +12,53 @@
         app:cardUseCompatPadding="true"
         app:cardElevation="5dp"
         android:translationZ="3dp"
-        app:cardCornerRadius="8dp"
-        >
+        app:cardCornerRadius="16dp">
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:background="@color/white"
-            android:layout_height="150dp"
-            android:orientation="vertical"
-            android:gravity="center"
+            android:layout_height="wrap_content">
 
-            >
+            <ImageView
+                android:id="@+id/catImage"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background" />
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/catName"
-                android:text="Category Name"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                android:textAlignment="center"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_gravity="center"> <!-- Center the LinearLayout -->
 
-                />
+                <TextView
+                    android:id="@+id/catName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Category Name"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:background="@android:color/transparent" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/no_of_tests"
-                android:text="3 Tests"
-                android:textColor="@color/colorPrimary"
-                android:layout_marginTop="8dp"
-                android:textAlignment="center"
-                />
+                <TextView
+                    android:id="@+id/no_of_tests"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:text="3 Tests"
+                    android:textStyle="normal"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:padding="4dp"
+                    android:background="@drawable/round_corner_btn3" />
+            </LinearLayout>
 
-
-        </LinearLayout>
+        </FrameLayout>
 
     </androidx.cardview.widget.CardView>
 

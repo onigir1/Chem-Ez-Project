@@ -44,6 +44,9 @@
     <color name="softpink">#F8BBD0</color>
     <color name="lightlavender">#E1BEE7</color>
     <color name="mintgreen4">#C8E6C9</color>
+    <color name="transparent">#00000000</color>
+    <color name="semi_black">#80000000</color>
+
 
 
 

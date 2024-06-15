@@ -5,22 +5,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import com.github.barteksc.pdfviewer.PDFView;
-
-
-
 
 public class MaterialFragment extends Fragment {
-
-    private TextView material1B;
-    private TextView material2B;
-    private TextView material3B;
 
     private Dialog progressDialog;
     private TextView dialogText;
@@ -51,12 +44,12 @@ public class MaterialFragment extends Fragment {
     }
 
     private void initViews(View view) {
-        // Find PDFViews by their IDs
-        PDFView material1B = view.findViewById(R.id.material1B);
-        PDFView material2B = view.findViewById(R.id.material2B);
-        PDFView material3B = view.findViewById(R.id.material3B);
+        // Find Buttons by their IDs
+        Button material1B = view.findViewById(R.id.material1B);
+        Button material2B = view.findViewById(R.id.material2B);
+        Button material3B = view.findViewById(R.id.material3B);
 
-        // Set click listeners for each PDFView
+        // Set click listeners for each Button
         material1B.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,7 +71,6 @@ public class MaterialFragment extends Fragment {
             }
         });
     }
-
 
     private void openPdf(String pdfFileName) {
         // Create a new fragment to display the PDF

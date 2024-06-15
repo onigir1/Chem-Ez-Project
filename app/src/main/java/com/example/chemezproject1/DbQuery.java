@@ -29,7 +29,6 @@ import Models.RankModel;
 import Models.TestModel;
 
 public class DbQuery {
-    // Access a Cloud Firestore instance from your Activity
     public static FirebaseFirestore g_firestore;
     public static int g_selected_cat_index = 0;
     public static int g_selected_test_index = 0;
@@ -42,7 +41,7 @@ public class DbQuery {
     public static int g_usersCount = 0;
     public static boolean isMeOnTopList = false;
     public static ProfileModel myProfile = new ProfileModel("NA", null, null, 0);
-    public static RankModel myPerformance = new RankModel("NULL",0, -1);
+    public static RankModel myPerformance = new RankModel("NULL", 0, -1);
     public static final int NOT_VISITED = 0;
     public static final int UNANSWERED = 1;
     public static final int ANSWERED = 2;
@@ -50,15 +49,12 @@ public class DbQuery {
 
     static int tmp;
 
-
-    public static void createUserData(String email, String name, final MyCompleteListener completeListener)
-    {
-        // Create a new user with a first and last name
+    public static void createUserData(String email, String name, final MyCompleteListener completeListener) {
         Map<String, Object> userData = new ArrayMap<>();
         userData.put("EMAIL_ID", email);
         userData.put("NAME", name);
         userData.put("TOTAL_SCORE", 0);
-        userData.put("BOOKMARKS",0);
+        userData.put("BOOKMARKS", 0);
 
         DocumentReference userDoc = g_firestore.collection("USERS").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
@@ -73,15 +69,12 @@ public class DbQuery {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void avoid) {
-
                         completeListener.onSuccess();
-
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-
                         completeListener.onFailure();
                     }
                 });
@@ -116,28 +109,21 @@ public class DbQuery {
                 });
     }
 
-
-    public static void getUserData(final MyCompleteListener completeListener)
-    {
+    public static void getUserData(final MyCompleteListener completeListener) {
         g_firestore.collection("USERS").document(FirebaseAuth.getInstance().getUid())
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
 
                     @Override
-                    public void onSuccess(DocumentSnapshot documentSnapshot)
-                    {
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
                         myProfile.setName(documentSnapshot.getString("NAME"));
                         myProfile.setEmail(documentSnapshot.getString("EMAIL_ID"));
 
-
-                        if(documentSnapshot.getString("PHONE") != null )
-                        {
+                        if (documentSnapshot.getString("PHONE") != null) {
                             myProfile.setPhone(documentSnapshot.getString("PHONE"));
                         }
 
-
-                        if(documentSnapshot.get("BOOKMARKS") != null )
-                        {
+                        if (documentSnapshot.get("BOOKMARKS") != null) {
                             myProfile.setBookmarksCount(documentSnapshot.getLong("BOOKMARKS").intValue());
                         }
 
@@ -149,8 +135,7 @@ public class DbQuery {
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
-                    public void onFailure(@NonNull Exception e)
-                    {
+                    public void onFailure(@NonNull Exception e) {
                         completeListener.onFailure();
                     }
                 });
@@ -187,8 +172,7 @@ public class DbQuery {
                 });
     }
 
-    public static void loadBmIds(final MyCompleteListener completeListener)
-    {
+    public static void loadBmIds(final MyCompleteListener completeListener) {
         g_bmIdList.clear();
 
         g_firestore.collection("USERS").document(FirebaseAuth.getInstance().getUid())
@@ -197,12 +181,10 @@ public class DbQuery {
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-
                         int count = myProfile.getBookmarksCount();
 
-                        for(int i = 0; i < count; i++)
-                        {
-                            String bmID = documentSnapshot.getString("BM" + String.valueOf(i+1) + "_ID" );
+                        for (int i = 0; i < count; i++) {
+                            String bmID = documentSnapshot.getString("BM" + String.valueOf(i + 1) + "_ID");
                             g_bmIdList.add(bmID);
                         }
 
@@ -212,24 +194,20 @@ public class DbQuery {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-
                         completeListener.onFailure();
                     }
                 });
     }
 
-    public static void loadBookmarks(final MyCompleteListener completeListener)
-    {
+    public static void loadBookmarks(final MyCompleteListener completeListener) {
         g_bookmarksList.clear();
         tmp = 0;
 
-        if(g_bmIdList.size() == 0)
-        {
+        if (g_bmIdList.size() == 0) {
             completeListener.onSuccess();
         }
 
-        for( int i=0; i< g_bmIdList.size(); i++)
-        {
+        for (int i = 0; i < g_bmIdList.size(); i++) {
             String docID = g_bmIdList.get(i);
 
             g_firestore.collection("Questions").document(docID)
@@ -255,28 +233,21 @@ public class DbQuery {
 
                             tmp++;
 
-                            if(tmp == g_bmIdList.size())
-                            {
+                            if (tmp == g_bmIdList.size()) {
                                 completeListener.onSuccess();
                             }
-
-
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-
                             completeListener.onFailure();
                         }
                     });
-
-
         }
     }
 
-    public static void getTopUsers(final MyCompleteListener completeListener)
-    {
+    public static void getTopUsers(final MyCompleteListener completeListener) {
         g_usersList.clear();
 
         final String myUID = FirebaseAuth.getInstance().getUid();
@@ -289,66 +260,51 @@ public class DbQuery {
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-
-
                         int rank = 1;
 
-                        for(QueryDocumentSnapshot doc : queryDocumentSnapshots)
-                        {
+                        for (QueryDocumentSnapshot doc : queryDocumentSnapshots) {
                             g_usersList.add(new RankModel(
                                     doc.getString("NAME"),
                                     doc.getLong("TOTAL_SCORE").intValue(),
                                     rank
-
                             ));
 
-                            if( myUID.compareTo(doc.getId()) == 0 )
-                            {
+                            if (myUID.compareTo(doc.getId()) == 0) {
                                 isMeOnTopList = true;
                                 myPerformance.setRank(rank);
                             }
 
                             rank++;
-
                         }
 
                         completeListener.onSuccess();
-
-
                     }
-
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-
                         completeListener.onFailure();
                     }
                 });
     }
 
-    public static void getUsersCount(final MyCompleteListener completeListener)
-    {
+    public static void getUsersCount(final MyCompleteListener completeListener) {
         g_firestore.collection("USERS").document("TOTAL_USERS")
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-
                         g_usersCount = documentSnapshot.getLong("COUNT").intValue();
-
                         completeListener.onSuccess();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-
                         completeListener.onFailure();
                     }
                 });
     }
-
 
     public static void saveResult(final int score, final MyCompleteListener completeListener) {
         final String userId = FirebaseAuth.getInstance().getUid();
@@ -359,12 +315,11 @@ public class DbQuery {
 
         WriteBatch batch = g_firestore.batch();
 
-        //Bookmarks
+        // Bookmarks
         Map<String, Object> bmData = new ArrayMap<>();
 
-        for(int i=0; i < g_bmIdList.size(); i++ )
-        {
-            bmData.put("BM" + String.valueOf(i+1) + "_ID", g_bmIdList.get(i) );
+        for (int i = 0; i < g_bmIdList.size(); i++) {
+            bmData.put("BM" + String.valueOf(i + 1) + "_ID", g_bmIdList.get(i));
         }
 
         DocumentReference bmDoc = g_firestore.collection("USERS").document(FirebaseAuth.getInstance().getUid())
@@ -372,16 +327,13 @@ public class DbQuery {
 
         batch.set(bmDoc, bmData);
 
-
         DocumentReference userDoc = g_firestore.collection("USERS").document(userId);
 
         Map<String, Object> userData = new ArrayMap<>();
         userData.put("TOTAL_SCORE", score);
         userData.put("BOOKMARKS", g_bmIdList.size());
 
-
         batch.update(userDoc, userData);
-
 
         // Check if the current score is greater than the top score
         if (score > g_testList.get(g_selected_test_index).getTopScore()) {
@@ -400,8 +352,6 @@ public class DbQuery {
                         if (score > g_testList.get(g_selected_test_index).getTopScore()) {
                             g_testList.get(g_selected_test_index).setTopScore(score);
                             myPerformance.setScore(score);
-
-                            myPerformance.setScore(score);
                         }
                         completeListener.onSuccess();
                     }
@@ -413,8 +363,6 @@ public class DbQuery {
                     }
                 });
     }
-
-
 
     public static void loadCategories(final MyCompleteListener completeListener) {
         initFirestore();
@@ -427,8 +375,7 @@ public class DbQuery {
 
                         Map<String, QueryDocumentSnapshot> docList = new ArrayMap<>();
 
-                        for (QueryDocumentSnapshot doc : queryDocumentSnapshots)
-                        {
+                        for (QueryDocumentSnapshot doc : queryDocumentSnapshots) {
                             docList.put(doc.getId(), doc);
                         }
 
@@ -436,38 +383,48 @@ public class DbQuery {
 
                         long catCount = catListDoc.getLong("COUNT");
 
-                        for(int i=1; i<= catCount; i++)
-                        {
+                        for (int i = 1; i <= catCount; i++) {
                             String catID = catListDoc.getString("CAT" + String.valueOf(i) + "_ID");
 
                             QueryDocumentSnapshot catDoc = docList.get(catID);
 
                             int noOfTest = catDoc.getLong("NO_OF_TESTS").intValue();
-
                             String catName = catDoc.getString("NAME");
 
-                            g_catList.add(new CategoryModel(catID, catName, noOfTest));
+                            Log.d("DbQuery", "Category Name: " + catName); // Debug logging
 
+                            int imageResId = getImageResId(catName); // Set the image resource ID based on the category name
 
+                            g_catList.add(new CategoryModel(catID, catName, noOfTest, imageResId));
                         }
                         completeListener.onSuccess();
-
                     }
-
-
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        //Log.e("DbQuery", "Error loading categories: " + e.getMessage());
                         completeListener.onFailure();
                     }
                 });
     }
 
+    private static int getImageResId(String categoryName) {
+        if (categoryName == null) {
+            return R.drawable.category4; // Default image if none match
+        }
+        switch (categoryName.trim().toLowerCase()) {
+            case "carbon compounds (gk)":
+                return R.drawable.category1;
+            case "chemical properties (sp)":
+                return R.drawable.category2;
+            case "homologous series (tmp)":
+                return R.drawable.category3;
+            default:
+                return R.drawable.category4; // Default image if none match
+        }
+    }
 
-    public static void loadquestions(final MyCompleteListener completeListener)
-    {
+    public static void loadquestions(final MyCompleteListener completeListener) {
         g_quesList.clear();
         g_firestore.collection("Questions")
                 .whereEqualTo("CATEGORY", g_catList.get(g_selected_cat_index).getDocID())
@@ -477,16 +434,12 @@ public class DbQuery {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 
-
                         for (DocumentSnapshot doc : queryDocumentSnapshots) {
-
                             boolean isBookmarked = false;
 
-                            if( g_bmIdList.contains(doc.getId()))
-                            {
+                            if (g_bmIdList.contains(doc.getId())) {
                                 isBookmarked = true;
                             }
-
 
                             g_quesList.add(new QuestionModel(
                                     doc.getId(),
@@ -499,7 +452,6 @@ public class DbQuery {
                                     -1,
                                     NOT_VISITED,
                                     isBookmarked
-
                             ));
                         }
                         completeListener.onSuccess();
@@ -508,21 +460,11 @@ public class DbQuery {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-
-                        // new one
                         Log.e("DbQuery", "Error loading questions: " + e.getMessage());
-                        // Call onFailure method of MyCompleteListener
                         completeListener.onFailure();
-
-                        //initial one
-                        //completeListener.onFailure();
                     }
                 });
     }
-
-
-
-
 
     public static void initFirestore() {
         if (g_firestore == null) {
@@ -530,8 +472,7 @@ public class DbQuery {
         }
     }
 
-    public static void loadTestData(final MyCompleteListener completeListener)
-    {
+    public static void loadTestData(final MyCompleteListener completeListener) {
         g_testList.clear();
 
         g_firestore.collection("QUIZ").document(g_catList.get(g_selected_cat_index).getDocID())
@@ -540,11 +481,9 @@ public class DbQuery {
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-
                         int noOfTests = g_catList.get(g_selected_cat_index).getNoOfTests();
 
-                        for (int i=1; i<= noOfTests; i++)
-                        {
+                        for (int i = 1; i <= noOfTests; i++) {
                             Long timeLong = documentSnapshot.getLong("TEST" + String.valueOf(i) + "_TIME");
                             int time = (timeLong != null) ? timeLong.intValue() : 0;
 
@@ -565,26 +504,21 @@ public class DbQuery {
                 });
     }
 
-    public static void loadData(final MyCompleteListener completeListener)
-    {
+    public static void loadData(final MyCompleteListener completeListener) {
         loadCategories(new MyCompleteListener() {
             @Override
-            public void onSuccess()
-            {
+            public void onSuccess() {
                 getUserData(new MyCompleteListener() {
                     @Override
                     public void onSuccess() {
-
                         getUsersCount(new MyCompleteListener() {
                             @Override
                             public void onSuccess() {
-
                                 loadBmIds(completeListener);
                             }
 
                             @Override
                             public void onFailure() {
-
                                 completeListener.onFailure();
                             }
                         });
@@ -592,18 +526,15 @@ public class DbQuery {
 
                     @Override
                     public void onFailure() {
-
                         completeListener.onFailure();
                     }
                 });
             }
 
             @Override
-            public void onFailure()
-            {
+            public void onFailure() {
                 completeListener.onFailure();
             }
         });
     }
-
 }
